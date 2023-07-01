@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategorySaveRequest extends FormRequest
+class CourseUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,8 @@ class CategorySaveRequest extends FormRequest
     {
         return [
             //
-            "name" => "required"
+            "duration" =>"required|numeric",
+            "category_id" =>"requerid|exists:categories,id"
         ];
     }
 
@@ -33,7 +34,10 @@ class CategorySaveRequest extends FormRequest
     {
         return [
             //
-            "name" => "nombre"
+            "name" => "nombre",
+            "description" =>"descripcion",
+            "duration" =>"duracion",
+            "category_id" =>"Categoria"
         ];
     }
 }

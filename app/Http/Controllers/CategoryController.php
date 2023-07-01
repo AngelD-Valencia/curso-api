@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CategorySaveRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class CategoryController extends Controller
     {
         //
         $category = Category::create($request->all());
-        
+        return $category;
 
     }
 
@@ -44,6 +45,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+        return new CategoryResource($category);
     }
 
     /**
@@ -53,9 +55,13 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryUpdateRequest $request, Category $category)
     {
         //
+        //dd("prueba de update");
+        $category->update($request->all());
+
+        return new CategoryResource($category);
     }
 
     /**
@@ -66,6 +72,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        //$category->delete($category);
+        if($category) $category->update(['state' => 'DELETE']);
+
+        return response()->noContent();
     }
 }
