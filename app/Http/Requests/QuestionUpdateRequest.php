@@ -26,11 +26,11 @@ class QuestionUpdateRequest extends FormRequest
         return [
             //
             "name" => "required",
-            "alternative1" => "alternativa1",
-            "alternative2" => "alternativa2",
-            "alternative3" => "alternativa3",
-            "alternative4" => "alternativa4",
-            "alternative5" => "alternativa5",
+            "alternative1" => "required",
+            "alternative2" => "required",
+            "alternative3" => "required",
+            "alternative4" => "required",
+            "alternative5" => "required",
         ];
     }
 
@@ -44,6 +44,7 @@ class QuestionUpdateRequest extends FormRequest
             "alternative3" => "alternativa3",
             "alternative4" => "alternativa4",
             "alternative5" => "alternativa5",
+            "exam_id" =>"Examen",
         ];
     }
 }

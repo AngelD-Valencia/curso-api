@@ -25,7 +25,13 @@ class QuestionSaveRequest extends FormRequest
     {
         return [
             //
-            "name" => "required"
+            "name" => "required",
+            "alternative1" => "alternativa1",
+            "alternative2" => "alternativa2",
+            "alternative3" => "alternativa3",
+            "alternative4" => "alternativa4",
+            "alternative5" => "alternativa5",
+            "exam_id" =>"required|exists:exams,id"
         ];
     }
 
@@ -33,7 +39,13 @@ class QuestionSaveRequest extends FormRequest
     {
         return [
             //
-            "name" => "nombre"
+            "name" => "nombre",
+            "alternative1" => "alternativa1",
+            "alternative2" => "alternativa2",
+            "alternative3" => "alternativa3",
+            "alternative4" => "alternativa4",
+            "alternative5" => "alternativa5",
+            "exam_id" =>"Examen",
         ];
     }
 }

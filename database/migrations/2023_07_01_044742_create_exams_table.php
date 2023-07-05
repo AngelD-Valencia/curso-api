@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('id')->autoIncrement();
             $table->string('name');
             $table->enum('state', ['ACTIVE', 'DELETE'])->default('ACTIVE');
+            $table->integer('qualification');
 
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('exams');

@@ -35,7 +35,8 @@ class ExamSaveRequest extends FormRequest
         return [
             //
             "name" => "nombre",
-            "course_id" =>"Course"
+            "qualification" => "calificacion",
+            "course_id" =>"Course",
         ];
     }
 }

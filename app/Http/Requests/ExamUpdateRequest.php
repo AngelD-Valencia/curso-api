@@ -33,7 +33,9 @@ class ExamUpdateRequest extends FormRequest
     {
         return [
             //
-            "name" => "nombre"
+            "name" => "nombre",
+            "qualification" => "calificacion",
+            "course_id" =>"Curso",
         ];
     }
 }
