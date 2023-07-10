@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ExamUpdateRequest extends FormRequest
+class StudentSaveRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,10 @@ class ExamUpdateRequest extends FormRequest
         return [
             //
             "name" => "required",
-            "course_id" =>"required|exists:courses,id",
+            "lastname" => "required",
+            "dni" => "required|numeric",
+            "email" => "required",
+            "phone" => "required|numeric"
         ];
     }
 
@@ -35,8 +38,10 @@ class ExamUpdateRequest extends FormRequest
         return [
             //
             "name" => "nombre",
-            "qualification" => "calificacion",
-            "course_id" =>"Curso",
+            "lastname" => "apellido",
+            "dni" => "dni",
+            "email" => "correo",
+            "phone" => "telefono"
         ];
     }
 }
