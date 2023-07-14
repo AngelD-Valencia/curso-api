@@ -25,6 +25,23 @@ class StudentUpdateRequest extends FormRequest
     {
         return [
             //
+            "name" => "required",
+            "lastname" => "required",
+            "dni" => "required|numeric",
+            "email" => "required",
+            "phone" => "required|numeric"
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            //
+            "name" => "nombre",
+            "lastname" => "apellido",
+            "dni" => "dni",
+            "email" => "correo",
+            "phone" => "telefono"
         ];
     }
 }
