@@ -31,6 +31,7 @@ class QuestionUpdateRequest extends FormRequest
             "alternative3" => "required",
             "alternative4" => "required",
             "alternative5" => "required",
+            "exam_id" =>"requerid|exists:exams,id",
         ];
     }
 
