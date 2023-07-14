@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\LoginApiController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +26,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('category', CategoryController::class);
 Route::apiResource('course', CourseController::class);
+<<<<<<< HEAD
+
+=======
 */
 ###################################################################################
 #                             APIs CON TOKEN
@@ -30,7 +36,9 @@ Route::apiResource('course', CourseController::class);
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('category', CategoryController::class);
     Route::apiResource('course', CourseController::class);
-    
+    Route::apiResource('exam', ExamController::class);
+    Route::apiResource('question', QuestionController::class);
+    Route::apiResource('student', StudentController::class);   
 });
 
 Route::post('/login', [LoginApiController::class, 'login']);
