@@ -13,15 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
             $table->string('name');
-            $table->text('description');
-            $table->integer('duration');
+            $table->text('alternative1');
+            $table->text('alternative2');
+            $table->text('alternative3');
+            $table->text('alternative4');
+            $table->text('alternative5');
             $table->enum('state', ['ACTIVE', 'DELETE'])->default('ACTIVE');
 
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('courses');
+            $table->integer('exam_id')->unsigned();
+            $table->foreign('exam_id')->references('id')->on('questions');
 
             $table->timestamps();
         });
@@ -34,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('questions');
     }
 };

@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('exams', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
             $table->string('name');
-            $table->text('description');
-            $table->integer('duration');
             $table->enum('state', ['ACTIVE', 'DELETE'])->default('ACTIVE');
+            $table->integer('qualification');
 
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('courses');
-
+            $table->integer('course_id')->unsigned();
+            $table->foreign('course_id')->references('id')->on('exams');
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('exams');
     }
 };
